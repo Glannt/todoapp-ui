@@ -6,7 +6,7 @@ Giao diện hỗ trợ quản lý nhiều danh sách công việc riêng biệt,
 
 ---
 
-## 🚀 Tính năng nổi bật
+##  Tính năng nổi bật
 
 * **Giao diện hiện đại (Modern UI):** Thiết kế tối giản, sạch sẽ, responsive hoàn toàn trên máy tính và thiết bị di động.
 * **Cấu trúc dạng cây (Todo Tree):** Cho phép tạo công việc con lồng nhau không giới hạn cấp độ.
@@ -16,7 +16,7 @@ Giao diện hỗ trợ quản lý nhiều danh sách công việc riêng biệt,
 
 ---
 
-## 🛠️ Yêu cầu hệ thống
+##  Yêu cầu hệ thống
 
 Trước khi bắt đầu, hãy đảm bảo máy tính của bạn đã cài đặt:
 * **Node.js** (Phiên bản khuyến nghị: `>= 18.x` hoặc `>= 20.x`)
@@ -25,7 +25,12 @@ Trước khi bắt đầu, hãy đảm bảo máy tính của bạn đã cài đ
 
 ---
 
-## 💻 Hướng dẫn chạy dự án ở Local
+## Hướng dẫn vào web frontend online
+Mở trình duyệt và truy cập vào địa chỉ:  [**https://todoapp-ui-gbzd.vercel.app/**](https://todoapp-ui-gbzd.vercel.app/)
+
+---
+
+## Hướng dẫn chạy dự án ở Local
 
 ### Bước 1: Cài đặt thư viện (Dependencies)
 
@@ -57,11 +62,11 @@ npm run dev
 ```
 
 Sau khi chạy thành công, mở trình duyệt và truy cập:
-👉 [**http://localhost:3000**](http://localhost:3000)
+ [**http://localhost:3000**](http://localhost:3000)
 
 ---
 
-## 🏗️ Xây dựng và Khởi chạy Production
+## Xây dựng và Khởi chạy Production
 
 Để xây dựng ứng dụng tối ưu nhất và chạy trên môi trường production, thực hiện các lệnh sau:
 
@@ -78,7 +83,7 @@ Sau khi chạy thành công, mở trình duyệt và truy cập:
 
 ---
 
-## 🐳 Khởi chạy dự án bằng Docker
+## Khởi chạy dự án bằng Docker
 
 Dự án đã được cấu hình sẵn `Dockerfile` với cơ chế **Multi-stage build** để tối ưu hóa dung lượng image đầu ra.
 
