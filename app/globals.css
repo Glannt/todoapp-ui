@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: #f8fafc; /* slate-50 */
+}
+
+/* Đường dẫn nối cha-con trong cây todo lồng nhau */
+.thread-line {
+  position: relative;
+}
+
+.thread-line::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #e2e8f0; /* slate-200 */
+}
