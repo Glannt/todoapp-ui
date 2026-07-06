@@ -26,7 +26,7 @@ Trước khi bắt đầu, hãy đảm bảo máy tính của bạn đã cài đ
 ---
 
 ## Hướng dẫn vào web frontend online
-Mở trình duyệt và truy cập vào địa chỉ:  [**https://todoapp-ui-gbzd.vercel.app/**](https://todoapp-ui-gbzd.vercel.app/)
+Mở trình duyệt và truy cập vào địa chỉ:  [**https://todoapp-ui.vercel.app/**](https://todoapp-ui.vercel.app/)
 
 ---
 
