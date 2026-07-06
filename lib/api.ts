@@ -129,7 +129,7 @@ export function moveTodo(id: string, newParentId: string | null): Promise<TodoVi
 
 // ---------- Helper ----------
 
-function buildQuery(params: Record<string, unknown>): string {
+function buildQuery(params: any): string {
   const search = new URLSearchParams();
   Object.entries(params).forEach(([key, value]) => {
     if (value !== undefined && value !== null && value !== "") {
