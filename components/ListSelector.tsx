@@ -8,9 +8,10 @@ interface Props {
   activeListId: string | null;
   onSelect: (id: string) => void;
   onCreate: (name: string) => Promise<void>;
+  onDelete: (id: string) => void;
 }
 
-export default function ListSelector({ lists, activeListId, onSelect, onCreate }: Props) {
+export default function ListSelector({ lists, activeListId, onSelect, onCreate, onDelete }: Props) {
   const [newName, setNewName] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -27,28 +28,46 @@ export default function ListSelector({ lists, activeListId, onSelect, onCreate }
   }
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex flex-wrap gap-2">
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between w-full overflow-hidden">
+      <div className="flex flex-1 flex-row items-center gap-2 overflow-x-auto pb-2 scrollbar-thin max-w-full">
         {lists.map((list) => {
           const isActive = list.id === activeListId;
           return (
-            <button
+            <div
               key={list.id}
               onClick={() => onSelect(list.id)}
               className={[
-                "rounded-full px-4 py-1.5 text-sm font-medium transition",
+                "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium transition cursor-pointer select-none whitespace-nowrap",
                 isActive
                   ? "bg-brand-600 text-white shadow-sm"
                   : "bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-50",
               ].join(" ")}
             >
-              {list.name}
-            </button>
+              <span>{list.name}</span>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDelete(list.id);
+                }}
+                title="Xóa danh sách"
+                aria-label="Xóa danh sách"
+                className={[
+                  "flex h-4 w-4 items-center justify-center rounded-full transition-colors",
+                  isActive
+                    ? "text-brand-200 hover:bg-brand-700 hover:text-white"
+                    : "text-slate-400 hover:bg-slate-100 hover:text-slate-600",
+                ].join(" ")}
+              >
+                <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M2.5 2.5L9.5 9.5M9.5 2.5L2.5 9.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
           );
         })}
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 shrink-0">
         <input
           value={newName}
           onChange={(e) => setNewName(e.target.value)}

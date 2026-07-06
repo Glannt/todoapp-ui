@@ -6,6 +6,7 @@ import {
   createTodo,
   createTodoList,
   deleteTodo,
+  deleteTodoList,
   getAllTodoLists,
   getTodoTree,
   searchTodos,
@@ -89,6 +90,20 @@ export default function HomePage() {
     }
   }
 
+  async function handleDeleteList(id: string) {
+    if (!confirm("Bạn có chắc chắn muốn xóa danh sách này không?")) return;
+    try {
+      await deleteTodoList(id);
+      const newLists = lists.filter((list) => list.id !== id);
+      setLists(newLists);
+      if (activeListId === id) {
+        setActiveListId(newLists.length > 0 ? newLists[0].id : null);
+      }
+    } catch (err) {
+      setError(toMessage(err));
+    }
+  }
+
   async function handleAddRoot(content: string) {
     if (!activeListId) return;
     try {
@@ -151,6 +166,7 @@ export default function HomePage() {
           activeListId={activeListId}
           onSelect={setActiveListId}
           onCreate={handleCreateList}
+          onDelete={handleDeleteList}
         />
       </div>
 
